@@ -2,11 +2,11 @@ import schedule
 import time
 import requests
 
-def make_request():
+def wake_up_task():
     requests.get("https://aws-https-midleware.onrender.com/")
     print(f"Wake Up! - {time.ctime()}")
 
-schedule.every(30).seconds.do(make_request)
+schedule.every(30).seconds.do(wake_up_task)
 
 while True:
     schedule.run_pending()
