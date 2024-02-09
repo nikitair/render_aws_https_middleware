@@ -12,8 +12,9 @@ async def index():
 
 
 @app.post("/aws")
-async def index(r: Request):
+async def aws(r: Request):
 
+    # retrieving payload
     try:
         payload = r.body()
     except Exception as ex:
@@ -23,7 +24,7 @@ async def index(r: Request):
 
     # sending data to AWS
     aws_response = requests.post(
-        url="google.com",
+        url="http://3.98.147.51:5002/",
         json=payload
     )
 
