@@ -10,7 +10,18 @@ origins = [
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
     "http://localhost",
-    "http://localhost:8080",
+    "http://localhost:5000",
+
+    "https://aws-https-midleware.onrender.com/aws",
+    "https://aws-https-midleware.onrender.com",
+
+    "https://52.41.36.82:5000",
+    "https://54.191.253.12:5000",
+    "https://44.226.122.3:5000",
+
+    "https://52.41.36.82:5000/aws",
+    "https://54.191.253.12:5000/aws",
+    "https://44.226.122.3:5000/aws",
 ]
 
 app.add_middleware(
