@@ -1,12 +1,33 @@
 from fastapi import FastAPI, Request, HTTPException
 import requests
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
 
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/")
+async def index():
+    return {"success": True, "message": "Hello World"}
+
+
+@app.options("/")
 async def index():
     return {"success": True, "message": "Hello World"}
 
@@ -37,6 +58,11 @@ async def aws(r: Request):
         print(ex)
 
     return {"payload": payload, "aws_response": aws_data, "aws_status_code": status_code}
+
+
+@app.options("/aws")
+async def index():
+    return {"success": True, "message": "Hello World"}
 
 
 if __name__ == "__main__":
