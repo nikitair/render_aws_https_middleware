@@ -6,7 +6,7 @@ def make_request():
     requests.get("https://aws-https-midleware.onrender.com/")
     print(f"Wake Up! - {time.ctime()}")
 
-schedule.every().minute.do(make_request)
+schedule.every(30).seconds.do(make_request)
 
 while True:
     schedule.run_pending()
