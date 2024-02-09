@@ -1,8 +1,10 @@
 import schedule
 import time
+import requests
 
 def make_request():
-    print("Wake Up!")
+    requests.get("https://aws-https-midleware.onrender.com/")
+    print(f"Wake Up! - {time.ctime()}")
 
 schedule.every().minute.do(make_request)
 

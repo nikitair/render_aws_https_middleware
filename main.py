@@ -11,7 +11,7 @@ async def index():
     return {"success": True, "message": "Hello World"}
 
 
-@app.post("/aws")
+@app.post("/aws", status_code=301)
 async def aws(r: Request):
 
     # retrieving payload
@@ -29,14 +29,14 @@ async def aws(r: Request):
     )
 
     status_code = aws_response.status_code
-    data = aws_response.text
+    data = None
 
-    if status_code == 200:
-        return {"success": True, "data": payload, "aws_response": data}
-    
-    else:
-        return {"success": False, "aws_response": data, "status_code": status_code}
+    try:
+        data = aws_response.json()
+    except Exception as ex:
+        print(ex)
 
+    return {"payload": payload, "aws_response": data, "aws_status_code": status_code}
 
 
 if __name__ == "__main__":
