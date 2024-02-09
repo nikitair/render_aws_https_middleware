@@ -29,14 +29,14 @@ async def aws(r: Request):
     )
 
     status_code = aws_response.status_code
-    data = None
+    aws_data = None
 
     try:
-        data = aws_response.json()
+        aws_data = aws_response.json()
     except Exception as ex:
         print(ex)
 
-    return {"payload": payload, "aws_response": data, "aws_status_code": status_code}
+    return {"payload": payload, "aws_response": aws_data, "aws_status_code": status_code}
 
 
 if __name__ == "__main__":
