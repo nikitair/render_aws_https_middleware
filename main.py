@@ -22,6 +22,9 @@ origins = [
     "https://52.41.36.82:5000/aws",
     "https://54.191.253.12:5000/aws",
     "https://44.226.122.3:5000/aws",
+
+    # dragontail
+    "https://dragontail.choiceqr.com"
 ]
 
 app.add_middleware(
