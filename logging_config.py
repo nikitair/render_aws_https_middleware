@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # Custom UTC formatter
-formatter = UTCFormatter('%(asctime)s - %(levelname)s - %(message)s')
+formatter = UTCFormatter('%(levelname)s - %(message)s')
 
 # Terminal output
 th = logging.StreamHandler()
