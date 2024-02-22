@@ -64,7 +64,7 @@ async def aws(r: Request):
     # sending data to AWS
     logger.info(f"{aws.__name__} -- sending data to AWS")
     aws_response = requests.post(
-        url="http://52.23.187.142:5000/post_cookies",
+        url="http://52.23.187.142:5000/post_cookies_dragontail",
         json=payload
     )
 
