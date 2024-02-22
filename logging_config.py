@@ -24,9 +24,9 @@ th.setFormatter(formatter)
 logger.addHandler(th)
 
 # File output
-fh = logging.FileHandler(f"logs.log")
-fh.setLevel(logging.INFO)
-fh.setFormatter(formatter)
-logger.addHandler(fh)
+# fh = logging.FileHandler(f"logs.log")
+# fh.setLevel(logging.INFO)
+# fh.setFormatter(formatter)
+# logger.addHandler(fh)
 
 logger.info("=== LOGGING STARTED ===")
