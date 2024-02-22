@@ -1,3 +1,6 @@
 fastapi[all]
 requests
 schedule
+sshtunnel
+python-dotenv
+psycopg2-binary
