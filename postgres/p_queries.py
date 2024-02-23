@@ -90,6 +90,8 @@ def insert_cookies_data_dragontail(connector, data: dict):
                             %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                             %s, %s, %s, %s, %s, %s, %s, %s, %s)'''
 
+    logger.info(f"INSERTING COOKIE DATA TO cookies.dragontail_cookies")
+
     cursor.execute(query, (user_agent, url_path, ip, network,
                    city, region, region_code, country, country_name,
                    country_code, country_code_iso3, country_capital,
@@ -159,6 +161,8 @@ def insert_cookies_data_fatalist(connector, data: dict):
                     ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                             %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                             %s, %s, %s, %s, %s, %s, %s, %s, %s)'''
+    
+    logger.info(f"INSERTING COOKIE DATA TO cookies.fatalist_cookies")
 
     cursor.execute(query, (user_agent, url_path, ip, network,
                    city, region, region_code, country, country_name,
@@ -171,55 +175,10 @@ def insert_cookies_data_fatalist(connector, data: dict):
     connector.commit()
 
     logger.info("DATA INSERTED IN TABLE "
-                "cookies.dragontail_cookies SUCCESSFULLY")
+                "cookies.fatalist_cookies SUCCESSFULLY")
 
-
-# @postgres_connector
-# def create_dragontail_cookies_table(connector):
-#     cursor = connector.cursor()
-#     cursor.execute("""
-#                    CREATE TABLE cookies.dragontail_cookies
-#                    (
-#                     id BIGSERIAL PRIMARY KEY,
-#                     user_agent VARCHAR(255),
-#                     url_path VARCHAR(255),
-#                     ip VARCHAR(255),
-#                     network VARCHAR(255),
-#                     city VARCHAR(255),
-#                     region VARCHAR(255),
-#                     region_code VARCHAR(255),
-#                     country VARCHAR(255),
-#                     country_name VARCHAR(255),
-#                     country_code VARCHAR(255),
-#                     country_code_iso3 VARCHAR(255),
-#                     country_capital VARCHAR(255),
-#                     country_tld VARCHAR(255),
-#                     continent_code VARCHAR(255),
-#                     in_eu BOOLEAN DEFAULT False,
-#                     postal VARCHAR(255),
-#                     latitude VARCHAR(255),
-#                     longitude VARCHAR(255),
-#                     timezone VARCHAR(255),
-#                     utc_offset VARCHAR(255),
-#                     country_calling_code VARCHAR(255),
-#                     currency VARCHAR(255),
-#                     currency_name VARCHAR(255),
-#                     languages VARCHAR(255),
-#                     country_area INT,
-#                     country_population INT,
-#                     asn VARCHAR(255),
-#                     org VARCHAR(255),
-#                     _ga VARCHAR(255),
-#                     language VARCHAR(255),
-#                     cookieSettings VARCHAR(255),
-#                     _ga_WFTDQVD03N VARCHAR(255),
-#                     raw_data JSONB,
-#                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-#                    );
-#                     """)
-#     print("table created")
 
 
 if __name__ == "__main__":
-    # print(get_all_data_dragontail())
+    print(get_all_data_dragontail())
     print(get_all_data_fatalist())
